@@ -1,0 +1,41 @@
+﻿<Window x:Class="DateConvWPF.Win"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DateConvWPF"
+        mc:Ignorable="d"
+        Title="המרת תאריכים עברי &lt;-&gt; לועזי"
+        Height="455"
+        Width="370"
+        FlowDirection="RightToLeft">
+    <Grid HorizontalAlignment="Center" Height="435" Margin="0,10,0,0" VerticalAlignment="Top" Width="360">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="68*"/>
+        </Grid.RowDefinitions>
+        <GroupBox HorizontalAlignment="Center" Height="82" Header="תאריך עברי" VerticalAlignment="Center" Width="350" >
+
+            <WrapPanel Height="58" HorizontalAlignment="Center" VerticalAlignment="Top" Width="324">
+                <StackPanel Orientation="Horizontal" Height="30" Width="322" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="" Width="55" Height="25" Margin="2,0,0,0"/>
+                    <Label Content="יום:" Width="38" Height="25" Margin="2,0,0,0" HorizontalContentAlignment="Center"/>
+                    <Label Content="חודש:" Width="66" Height="26" Margin="2,0,0,0" HorizontalContentAlignment="Center"/>
+                    <Label Content="אלף:אא" Width="33" Height="26" Margin="2,0,0,0" HorizontalContentAlignment="Center"/>
+                    <Label Content="שנה:" Width="87" Height="25" Margin="2,0,0,0" HorizontalContentAlignment="Center"/>
+                    <Label Content="" Height="25" Width="31" Margin="5,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" Width="322" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Label" Width="55" Height="23"/>
+                    <ComboBox Width="38" Height="22" HorizontalContentAlignment="Right" Margin="2,0,0,0"/>
+                    <ComboBox Width="71" Height="22" HorizontalContentAlignment="Right" Margin="2,0,0,0"/>
+                    <ComboBox Width="27" Height="22" HorizontalContentAlignment="Right" Margin="2,0,0,0"/>
+                    <ComboBox Width="87" Height="22" HorizontalContentAlignment="Center" Margin="2,0,0,0"/>
+                    <DatePicker Height="23" Width="31" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+    </Grid>
+
+</Window>

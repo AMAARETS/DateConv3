@@ -1,0 +1,95 @@
+﻿<Window x:Class="DateConvWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DateConvWPF"
+        mc:Ignorable="d"
+        Title="המרה עברי &lt;-&gt; לועזי"
+        Width="370"
+        Height="455"
+        Background="Lavender"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        FlowDirection="RightToLeft">
+    <!-- שימוש ב-Grid לארגן את הרכיבים לפי שורות -->
+    <Grid Margin="10">
+        <!-- הגדרת שורות ל-Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- תאריך עברי -->
+            <RowDefinition Height="Auto"/>
+            <!-- תאריך לועזי -->
+            <RowDefinition Height="47*"/>
+            <!-- כפתור שמירה -->
+            <RowDefinition Height="Auto"/>
+            <!-- רשימות -->
+            <RowDefinition Height="Auto"/>
+            <!-- מחיקת היסטוריה -->
+            <RowDefinition Height="173*"/>
+            <!-- רווח גמיש -->
+        </Grid.RowDefinitions>
+
+        <!-- קבוצת רכיבים לתאריך עברי -->
+        <GroupBox Header="תאריך עברי" Grid.Row="0" Margin="0,0,0,10">
+            <!-- שימוש ב-StackPanel לארגון אופקי -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <!-- כפתור העתק -->
+                <Button Name="buttonCopyHeb" Content="העתק" Width="68" Height="30"/>
+                <!-- כפתור היום -->
+                <!-- בורר תאריך חבוי לצורך שינוי תאריך -->
+                <DatePicker Name="datePickerHeb" Width="25" Height="26" Margin="5,0,0,0"/>
+                <Button x:Name="buttonTodayHeb" Content="היום" Width="59" Height="30"/>
+                <!-- שנה אלפים -->
+                <Label Content="אלף:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox Name="comboBoxHebElef" Width="51" Height="28" Margin="2,0,0,0"/>
+                <!-- שנה -->
+                <Label Content="שנה:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox Name="comboBoxHebShana" Width="98" Height="28" Margin="2,0,0,0"/>
+                <Label Content="חודש:"/>
+                <!-- חודש -->
+                <ComboBox x:Name="comboBoxHebChodesh" Width="68" Height="28"/>
+                <!-- יום -->
+                <Label Content="יום:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox Name="comboBoxHebYom" Width="60" Height="28" Margin="2,0,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- קבוצת רכיבים לתאריך לועזי -->
+        <GroupBox Header="תאריך לועזי" Grid.Row="1" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Width="282" RenderTransformOrigin="0.653,0.504">
+                <!-- בורר תאריך לועזי -->
+                <DatePicker Name="datePickerGreg" Width="25" Height="26" Margin="5,0,0,0"/>
+                <!-- שנה -->
+                <Label Content="שנה:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox Name="comboBoxGregShana" Width="94" Height="28" Margin="2,0,0,0"/>
+                <!-- חודש -->
+                <Label Content="חודש:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox Name="comboBoxGregChodesh" Width="58" Height="28" Margin="2,0,0,0"/>
+                <!-- יום -->
+                <Label Content="יום:" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <ComboBox Name="comboBoxGregYom" Width="54" Height="28" Margin="2,0,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- כפתור שמירת המרה -->
+        <Button Name="buttonShmira" Content="שמור המרה" Grid.Row="2" Width="142" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+
+        <!-- רשימות סנכרון עברי ולועזי -->
+        <Grid Grid.Row="4" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <!-- רשימה עברית -->
+                <ColumnDefinition Width="*"/>
+                <!-- רשימה לועזית -->
+            </Grid.ColumnDefinitions>
+            <!-- רשימה עברית -->
+            <ListBox Name="listBoxHeb" Grid.Column="0" Width="165" Height="124" HorizontalAlignment="Left"/>
+            <!-- רשימה לועזית -->
+            <ListBox Name="listBoxGreg" Height="124" Grid.ColumnSpan="2" Margin="162,0,0,0"/>
+        </Grid>
+
+        <!-- כפתור מחיקת היסטוריה -->
+        <Button Name="buttonMechakHistory" Content="מחק היסטוריה" Grid.Row="5" Width="179" HorizontalAlignment="Center" Margin="0,0,0,139" Grid.RowSpan="2"/>
+    </Grid>
+</Window>
